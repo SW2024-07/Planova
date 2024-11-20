@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/index'
-  get 'users/new'
-  get 'users/create'
-  get 'users/edit'
-  get 'users/update　destroy'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'top#main' # トップページ
+  get 'login', to: 'top#login'
+  post 'login', to: 'top#login'
+  delete 'logout', to: 'top#logout'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  resources :users, only: [:new, :create, :show] # 新規登録とマイページ
+  resources :calendars # 他のリソースも必要に応じて追加
 end

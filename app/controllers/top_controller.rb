@@ -8,9 +8,9 @@ class TopController < ApplicationController
       user = User.find_by(email: params[:email])
       if user&.authenticate(params[:password])
         session[:user_id] = user.id
-        redirect_to root_path, notice: 'ログインしました。'
+        redirect_to root_path, notice: "#{current_user.username}としてログインしました" # 例として表示
       else
-        flash.now[:alert] = 'メールアドレスまたはパスワードが間違っています。'
+        flash.now[:alert] = 'メールアドレスまたはパスワードが間違っています'
         render :login
       end
     end
@@ -18,6 +18,6 @@ class TopController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    redirect_to root_path, notice: 'ログアウトしました。'
+    redirect_to root_path, notice: 'ログアウトしました'
   end
 end

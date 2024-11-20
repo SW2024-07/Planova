@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'top/main'
+  get 'top/login'
+  get 'top/logout'
   root 'top#main' # トップページ
   get 'login', to: 'top#login'
   post 'login', to: 'top#login'

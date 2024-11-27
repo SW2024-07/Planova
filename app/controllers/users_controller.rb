@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:show]
+  
   def new
     @user = User.new
   end
@@ -9,12 +11,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path, notice: 'アカウントが作成されました。'
     else
+      flash.now[:alert] = 'アカウント作成に失敗しました。'
       render :new
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @user_calendars = @user.user_calendars.includes(:events)
   end
 
   private

@@ -1,0 +1,18 @@
+<h1>マイページ</h1>
+
+<div class="user-info">
+  <p>ユーザー名: <%= @user.username %></p>
+  <p>メールアドレス: <%= @user.email %></p>
+</div>
+
+<div class="user-calendars">
+  <h2>作成したカレンダー</h2>
+  <ul>
+    <% @user_calendars.each do |calendar| %>
+      <li>
+        <strong><%= link_to calendar.title, user_calendar_path(calendar) %></strong>
+        <p><%= calendar.description %></p>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root 'top#main' # トップページ
   get 'login', to: 'top#login'
   post 'login', to: 'top#login'
-  delete 'logout', to: 'top#logout'
+  get 'top/logout', to: 'top#logout', as: 'logout'
+
   
   get 'mypage', to: 'users#show', as: :mypage
 

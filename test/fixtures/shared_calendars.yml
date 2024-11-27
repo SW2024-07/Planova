@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_calendar: one
+  user: one
+  can_edit: false
+
+two:
+  user_calendar: two
+  user: two
+  can_edit: false

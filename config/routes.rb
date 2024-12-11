@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get 'mypage', to: 'users#show', as: :mypage
 
   resources :users, only: [:new, :create, :show] # 新規登録とマイページ
-  resources :calendars # 他のリソースも必要に応じて追加
+  resources :user_calendars
 end

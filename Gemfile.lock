@@ -110,6 +110,7 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
+    ice_cube (0.17.0)
     importmap-rails (2.0.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -205,6 +206,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_calendar (3.0.4)
+      rails (>= 6.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -244,11 +247,13 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  ice_cube
   importmap-rails
   jbuilder
   puma (>= 5.0)
   rails (~> 7.1.5)
   selenium-webdriver
+  simple_calendar
   sprockets-rails
   sqlite3 (>= 1.4)
   stimulus-rails

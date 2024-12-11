@@ -1,0 +1,10 @@
+<h1><%= @user_calendar.title %></h1>
+<p><%= @user_calendar.description %></p>
+
+<%= calendar events: @events do |event| %>
+  <%= link_to event.title, event_path(event) %>
+<% end %>
+
+<%= link_to '編集', edit_user_calendar_path(@user_calendar) %> |
+<%= link_to '削除', user_calendar_path(@user_calendar), method: :delete, data: { confirm: '本当に削除しますか？' } %> |
+<%= link_to '戻る', user_calendars_path %>

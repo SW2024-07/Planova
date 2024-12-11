@@ -1,8 +1,20 @@
 <h1><%= @user_calendar.title %></h1>
 <p><%= @user_calendar.description %></p>
 
-<%= calendar events: @events do |event| %>
-  <%= link_to event.title, event_path(event) %>
+<%= month_calendar do |date| %>
+  <div class="day">
+    <%= date %>
+    <% events_for_day = @user_calendar.events.where("DATE(start_time) = ?", date.to_date) %>
+    <% if events_for_day.any? %>
+      <ul>
+        <% events_for_day.each do |event| %>
+          <li>
+            <%= link_to event.title, edit_user_calendar_event_path(@user_calendar, event), class: 'event-link' %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 <% end %>
 
 <%= link_to '編集', edit_user_calendar_path(@user_calendar) %> |

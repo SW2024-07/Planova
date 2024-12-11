@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show] # 新規登録とマイページ
   resources :user_calendars
+  resources :events, except: [:index, :show]
 end

@@ -1,0 +1,81 @@
+@import "simple_calendar";
+
+/* .simple-calendar: カレンダー全体のスタイル */
+.simple-calendar {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+}
+
+/* ヘッダー: 月と年の表示 */
+.simple-calendar .calendar-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.simple-calendar .calendar-heading .calendar-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.simple-calendar .calendar-heading nav {
+  display: flex;
+  gap: 10px;
+}
+
+.simple-calendar .calendar-heading nav a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.simple-calendar .calendar-heading nav a:hover {
+  color: #0056b3;
+}
+
+/* テーブル: 日付の表示 */
+.simple-calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.simple-calendar table th,
+.simple-calendar table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.simple-calendar table th {
+  background-color: #f8f9fa;
+  color: #6c757d;
+}
+
+.simple-calendar table td {
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.simple-calendar table td:hover {
+  background-color: #f1f1f1;
+}
+
+/* イベントがある日付: イベントを強調表示 */
+.simple-calendar table td.event-day {
+  background-color: #e9ecef;
+  font-weight: bold;
+}
+
+.simple-calendar table td.event-day:hover {
+  background-color: #dae0e5;
+}

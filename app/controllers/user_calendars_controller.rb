@@ -8,7 +8,7 @@ class UserCalendarsController < ApplicationController
 
   def show
     @user_calendar = UserCalendar.find(params[:id])
-    @events = @user_calendar.events # UserCalendarに関連付けられたイベントを取得
+    @events = @user_calendar.events || [] # 空の配列を代入
   end
 
   def new

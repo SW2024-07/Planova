@@ -1,6 +1,6 @@
 class UserCalendarsController < ApplicationController
   before_action :authenticate_user! # ユーザーがログインしていない場合、ログインページにリダイレクト
-  before_action :set_user_calendar, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_calendar, only: [:show, :edit, :update, :destroy, :share]
 
   def index
     @user_calendars = current_user.user_calendars
@@ -37,7 +37,19 @@ class UserCalendarsController < ApplicationController
 
   def destroy
     @user_calendar.destroy
-    redirect_to user_calendars_path, notice: 'カレンダーが削除されました。'
+    redirect_to mypage_path, notice: 'カレンダーが削除されました。'
+  end
+  
+  # カレンダーを共有する
+  def share
+    @user_calendar.update(shared: true, share_url: SecureRandom.hex(10))
+    redirect_to @user_calendar, notice: 'カレンダーを共有しました。'
+  end
+
+  # 共有を解除する
+  def unshare
+    @user_calendar.update(shared: false, share_url: nil)
+    redirect_to @user_calendar, notice: 'カレンダーの共有を解除しました。'
   end
 
   private
